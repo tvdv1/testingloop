@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venn Diagram</title>
+    <style>
+        .venn-circle path {
+            fill-opacity: .25;
+            stroke-width: 2;
+            stroke: #fff;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.rawgit.com/benfred/venn.js/0.2.10/venn.js"></script>
+    <div id="venn"></div>
+    <script>
+        var sets = [
+            {sets: ['A'], size: 12},
+            {sets: ['B'], size: 12},
+            {sets: ['A','B'], size: 2}
+        ];
+
+        var chart = venn.VennDiagram()
+            .width(500)
+            .height(500);
+
+        var div = d3.select("#venn");
+        div.datum(sets).call(chart);
+    </script>
+</body>
+</html>
+
